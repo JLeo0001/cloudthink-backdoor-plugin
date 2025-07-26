@@ -1,19 +1,18 @@
 # 插件的名称
 name: backdoor
 
-# 自动从 pom.xml 读取版本号
 version: '${project.version}'
 
-# [修改] 更新主类路径
+# 主类路径
 main: link.cloudthink.backdoor
 
 # 目标 API 版本
 api-version: '1.21'
 
-# 软依赖，确保在 Paper 或其分支 (如 Leaves) 上都能加载
+# 软依赖
 softdepend:
   - Paper
 
-# （可选）插件描述和作者
+# 描述和作者
 description: 云想服务器后门插件
 author: JLeo0001
