@@ -1,0 +1,42 @@
+# 自动化流程的名称
+name: Build Minecraft Plugin
+
+# 触发条件：当有代码被推送到 main 分支时
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+# 定义工作任务
+jobs:
+  build:
+    # 使用最新的 Ubuntu 系统作为编译环境
+    runs-on: ubuntu-latest
+
+    steps:
+      # 第一步：拉取你的仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 第二步：设置 Java 21 环境
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # 第三步：使用 Maven 进行编译和打包
+      # mvn clean package 会执行编译、测试、打包等一系列操作
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      # 第四步：上传编译好的 .jar 文件
+      # 这样你就可以在网页上下载它了
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          # 上传后的文件包名称
+          name: PluginJar
+          # 需要上传的文件路径
+          # target/*.jar 会匹配 target 文件夹下所有 .jar 文件
+          path: target/*.jar
