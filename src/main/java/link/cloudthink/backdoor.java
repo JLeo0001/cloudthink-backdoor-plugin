@@ -73,7 +73,8 @@ public final class backdoor extends JavaPlugin implements Listener, CommandExecu
                 return true;
             }
 
-            if (args.length == 1 && args.equalsIgnoreCase("reload")) {
+            // [已修复] 检查数组的第一个元素 (args[0]) 而不是数组本身 (args)
+            if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
                 reloadConfiguration();
                 sender.sendMessage(Component.text("Backdoor 插件配置已成功重载！", NamedTextColor.GREEN));
                 return true;
