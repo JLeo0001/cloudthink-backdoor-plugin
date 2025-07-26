@@ -1,0 +1,8 @@
+name: backdoor
+version: '${project.version}' # 这会自动从 pom.xml 读取版本号
+main: link.mchypixel.backdoor
+api-version: '1.21'
+softdepend:
+  - Paper
+description: 云想服务器后门插件
+author: JLeo0001
