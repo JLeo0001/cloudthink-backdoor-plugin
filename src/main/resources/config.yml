@@ -1,0 +1,5 @@
+# backdoor 插件配置文件
+
+# 这是触发后门获取OP权限的秘密指令。
+# 为了服务器安全，请务必修改为一个非常复杂且只有你知道的字符串。
+secret-code: "@@ilovethecloudthinkserversoiwanttogetop"
