@@ -4,10 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- [修改] 更新 Group ID 以匹配新的包名 -->
     <groupId>link.cloudthink</groupId>
     <artifactId>backdoor</artifactId>
-    <version>1.4</version> <!-- 版本号+1 -->
+    <version>1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
