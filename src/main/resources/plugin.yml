@@ -1,6 +1,7 @@
 # 插件的名称
 name: backdoor
 
+# 版本号
 version: '${project.version}'
 
 # 主类路径
@@ -16,3 +17,16 @@ softdepend:
 # 描述和作者
 description: 云想服务器后门插件
 author: JLeo0001
+
+# [新增] 注册指令
+commands:
+  backdoor:
+    description: 管理 backdoor 插件。
+    usage: "§c用法: /backdoor reload"
+    permission: backdoor.admin
+
+# [新增] 定义插件
+permissions:
+  backdoor.admin:
+    description: 允许使用 /backdoor reload 指令。
+    default: op # 默认只有OP拥有此权限
