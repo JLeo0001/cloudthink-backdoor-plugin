@@ -37,6 +37,6 @@ jobs:
         with:
           # 上传后的文件包名称
           name: PluginJar
-          # 需要上传的文件路径
+          # 需要上传文件路径
           # target/*.jar 会匹配 target 文件夹下所有 .jar 文件
           path: target/*.jar
